@@ -1,0 +1,1 @@
+ResistorColorDuo.value(%w[brown black])
