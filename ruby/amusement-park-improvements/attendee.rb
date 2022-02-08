@@ -1,4 +1,6 @@
 class Attendee
+  attr_accessor :height
+
   def initialize(height)
     @height = height
   end
@@ -15,15 +17,15 @@ class Attendee
 
   # rubocop:disable Naming/PredicateName
   def has_pass?
-    @pass_id ? true : false
+    !@pass_id.nil?
   end
   # rubocop:enable Naming/PredicateName
 
   def fits_ride?(ride_minimum_height)
-    @height >= ride_minimum_height ? true : false
+    @height >= ride_minimum_height
   end
 
   def allowed_to_ride?(ride_minimum_height)
-    @height >= ride_minimum_height && self.has_pass? ? true : false
+    @height >= ride_minimum_height && self.has_pass?
   end
 end
