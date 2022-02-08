@@ -1,19 +1,11 @@
-=begin
-Write your code for the 'Acronym' exercise in this file. Make the tests in
-`acronym_test.rb` pass.
-
-To get started with TDD, see the `README.md` file in your
-`ruby/acronym` directory.
-=end
-
+# Convert a phrase to its acronym.
 class Acronym
 
-  def self.abbreviate(sentence)
+  def self.abbreviate(phrase)
     acronym = ""
-    sentence.gsub!('-', ' ')
-    arr = sentence.split(" ")
-    arr.each do |word|
-      acronym += word[0].upcase
+    phrase.split(/\W/).each do |word|
+      next if word.length == 0
+      acronym += word.chr.upcase
     end
 
     acronym
@@ -21,7 +13,7 @@ class Acronym
 end
 
 
-p Acronym.abbreviate('Portable Network Graphics')
-p Acronym.abbreviate('First In, First Out')
-p Acronym.abbreviate('Complementary metal-oxide semiconductor')
-p Acronym.abbreviate('Something - I made up from thin air')
+p Acronym.abbreviate('Portable Network Graphics') # => PNG
+p Acronym.abbreviate('First In, First Out') # => FIFO
+p Acronym.abbreviate('Complementary metal-oxide semiconductor') # => CMOS
+p Acronym.abbreviate('Something - I made up from thin air') # => SIMUFTA
