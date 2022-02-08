@@ -16,7 +16,7 @@ class SimpleCalculator
     begin
       raise ArgumentError.new unless first_operand.is_a? Numeric
       raise ArgumentError.new unless second_operand.is_a? Numeric
-      # raise UnsupportedOperation.new("error") if !ALLOWED_OPERATIONS.include?(operation)
+      raise UnsupportedOperation.new("error") if !ALLOWED_OPERATIONS.include?(operation)
 
       case operation
       when "+"
