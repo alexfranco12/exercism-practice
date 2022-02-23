@@ -7,15 +7,6 @@ To get started with TDD, see the `README.md` file in your
 =end
 
 class Scrabble
-  # LETTER_VALUES = {
-  #   "AEIOULNRST" => 1,
-  #   "DG" => 2,
-  #   "BCMP" => 3,
-  #   "FHVWY" => 4,
-  #   "K" => 5
-  #   "JX" => 8,
-  #   "QZ" => 10,
-  # }
 
   def initialize(word)
     @word = word ? word : ""
@@ -23,6 +14,7 @@ class Scrabble
 
   # loop through the word and sum up the score
   def score
+    return 0 if @word.empty?
     result = 0
     @word.split("").each do |char|
       char.upcase!
@@ -45,6 +37,7 @@ class Scrabble
 
     result
   end
+  
 end
 
 
@@ -52,4 +45,4 @@ p Scrabble.new("cabbage").score # => 14
 p Scrabble.new(nil).score # => 0
 
 # TODO: refactor the code above to pass this test.
-# p Scrabble.score('alacrity') # => 13
+p Scrabble.score('alacrity') # => 13
